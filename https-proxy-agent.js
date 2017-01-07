@@ -10,7 +10,7 @@ var extend = require('extend');
 var Agent = require('agent-base');
 var inherits = require('util').inherits;
 var debug = require('debug')('https-proxy-agent');
-var semver = require('
+var semver = require('senver');
 /**
  * Module exports.
  */
