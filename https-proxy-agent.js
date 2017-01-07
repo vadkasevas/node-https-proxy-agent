@@ -10,7 +10,7 @@ var extend = require('extend');
 var Agent = require('agent-base');
 var inherits = require('util').inherits;
 var debug = require('debug')('https-proxy-agent');
-
+var semver = require('
 /**
  * Module exports.
  */
@@ -132,7 +132,7 @@ function connect (req, opts, fn) {
       // nullify the buffered data since we won't be needing it
       buffers = buffered = null;
 
-      if (opts.secureEndpoint) {
+      if ( semver.lt(process.version, '4.6.0') && opts.secureEndpoint) {
         // since the proxy is connecting to an SSL server, we have
         // to upgrade this socket connection to an SSL connection
         debug('upgrading proxy-connected socket to TLS connection: %o', opts.host);
